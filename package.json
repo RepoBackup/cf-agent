@@ -1,0 +1,15 @@
+{
+  "name": "cf-agent",
+  "description": "A magent proxy server on Cloudflare Worker",
+  "bin": "cli.js",
+  "keywords": [ "proxy", "https", "serverless", "cloudflare", "worker", "magent" ],
+  "author": "free-gx",
+  "repository": {"type":"git", "url":"git+https://github.com/free-gx/cf-agent.git"},
+  "bugs": { "url": "https://github.com/free-gx/cf-agent/issues" },
+  "homepage": "https://github.com/free-gx/cf-agent#readme",
+  "dependencies": {
+    "magent": "^1.0.3"
+  },
+  "version": "0.0.1",
+  "license": "MIT"
+}
