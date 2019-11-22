@@ -18,7 +18,9 @@ Cloudflare Worker 代理联网
 * 设置参数：
 	* ```cf-agent init```
 * 导入证书：
-	* 将目录下生成的```ca.crt```导入到系统受信任的根证书颁发机构或者由浏览器的证书管理器导入 
+	* 将目录下生成的```ca.crt```导入到系统受信任的根证书颁发机构或者由浏览器的证书管理器导入
+* 发布到Cloudflare：
+	* ```cf-agent publish```
 * 开启本地代理：
 	* ```cf-agent proxy```
 
