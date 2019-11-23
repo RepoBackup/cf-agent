@@ -24,6 +24,6 @@ Cloudflare Worker 代理联网
 * 开启本地代理：
 	* ```cf-agent proxy```
 
-默认将绑定一个本地HTTP代理服务到本机6580端口
+默认将绑定一个本地HTTP代理服务到本机6580端口，所有HTTP(S)流量经由程序转发HTTPS请求到Worker
 
 [提交Bugs](https://github.com/free-gx/cf-agent/issues)
