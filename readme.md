@@ -1,29 +1,21 @@
 # cf-agent #
-### A magent proxy server on Cloudflare Worker ###
-
-Cloudflare Worker 代理联网
-
-此项目基于 [magent](https://github.com/DNetL/magent#readme)
-
-### 准备工作 ###
-* 注册Worker账号，记录子域。 例如: example.workers.dev
-* 在账户生成 API Token。 操作权限为[Workers Scripts:Edit]
-* 获取 Account ID。
-* [参考文档](https://developers.cloudflare.com/workers/quickstart/#finding-your-cloudflare-api-keys)
-
-### 安装 ###
-* ```npm i cf-agent -g```
+### 使用Cloudflare Worker转发报文的Mitn-Http代理服务  ###
 
 ### 使用 ###
-* 设置参数：
-	* ```cf-agent init```
-* 导入证书：
-	* 将目录下生成的```ca.crt```导入到系统受信任的根证书颁发机构或者由浏览器的证书管理器导入
-* 发布到Cloudflare：
-	* ```cf-agent publish```
-* 开启本地代理：
-	* ```cf-agent proxy```
+* 运行程序生成config.txt,worker.txt与根证书文件ca.crt
+* 将ca.crt证书导入到操作系统, 比如: certutil -addstore Root ca.crt
+* 复制worker.txt全部内容到Cloudflare Worker部署
+* 修改config.txt文件
 
-默认将绑定一个本地HTTP代理服务到本机6580端口，所有HTTP(S)流量经由程序转发HTTPS请求到Worker
+{"domain":"a.com","psw":"","hport":8082,"hbind":"127.0.0.1","wkip":"","ca":{}}
 
-[提交Bugs](https://github.com/free-gx/cf-agent/issues)
+* domain: 	worker绑定的域名 (必填)
+* psw: 		与worker.txt里的psw变量相同值 (必填)
+* ca: 		使用MITM服务的根证书(程序生成) (必填)
+* hport: 	本地绑定的http代理端口
+* hbind: 	本地绑定的http代理地址, 一般为 127.0.0.1
+* wkip: 	为本地连接到worker指定优选的IP, 不指定则不优选IP
+
+运行程序后将在本地机器开启一个http代理端口，浏览器设置代理到此端口即可代理上网
+
+[兴趣群组](https://t.me/DNetLab)
